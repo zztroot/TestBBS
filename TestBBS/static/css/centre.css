@@ -1,0 +1,32 @@
+.nick ul li{
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.nick ul li p a{
+    color: #1E9FFF;
+    text-decoration: none;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: #F9F9F9;
+}
+
+
+.left_content{
+    margin-top: 70px;
+    background-color: #FFFFFF;
+    font-family: Arial;
+    border: 2px solid #F1F1F4;
+    border-radius: 5px;
+}
+
+.left_content a:hover{
+    color: #01AAED;
+    text-decoration: none;
+}

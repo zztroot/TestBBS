@@ -1,0 +1,137 @@
+body{
+	background-color: #F9F9F9;
+}
+
+.left_content{
+	margin-top: 70px;
+	height: 500px;
+	background-color: #FFFFFF;
+    font-family: Arial; 
+    border: 2px solid #F1F1F4; 
+    border-radius: 5px;
+}
+
+.left_content a:hover{
+	color: #1E9FFF;
+}
+
+.article{
+	width: 96%;
+	margin: auto;
+	white-space: nowrap; 
+}
+
+.active_title{
+	float: left;
+}
+
+.img{
+	line-height: 50px;
+	width: 5%;
+}
+
+.article a{
+	color: #6e6b6e;
+}
+
+.title_all{
+	margin-left: 1%;
+	margin-top: 10px;
+	height: 30px;
+	width: 93%;
+	line-height: 30px;
+}
+
+.title{
+	width: 100%;
+}
+
+.time{
+
+}
+
+/* login css */
+#logins{
+	float: right;
+	margin-right: 15px;
+	padding: 0;
+	background-color: transparent;
+	border: 0px solid transparent;
+	outline: none;
+	color: #BEBEBE;
+	line-height: 50px;
+}
+
+#logins:hover{
+	color: #FFFFFF;
+}
+
+#register{
+	float: right;
+	margin-right: 15px;
+	padding: 0;
+	background-color: transparent;
+	border: 0px solid transparent;
+	outline: none;
+	color: #BEBEBE;
+	line-height: 50px;
+}
+
+#register:hover{
+	color: #FFFFFF;
+}
+
+#login{
+	width: 100%;
+	height: 100%;
+	background-color: #080808;
+	margin: auto;
+	background-color: #FFFFFF;
+	color: #6e6b6e;
+}
+
+
+.login_1{
+	width: 90%;
+	margin: auto;
+}
+
+.login_1 form{
+	padding-top: 10px;
+}
+
+.web_name h4{
+	color: #000000;
+	font-weight: bold;
+}
+
+.btn_1{
+	width: 100%;
+}
+
+.contents{
+	margin-top: 10px;
+}
+
+.collection{
+	margin-top: 150px;
+}
+
+.coll{
+	background-color: #FFFFFF;
+	width: 28px;
+	height: 28px;
+	border-radius:50%;
+	margin-top:5px;
+}
+
+.coll span{
+	margin-left: 3px;
+	margin-top: 3px;
+	
+	
+}
+
+.coll a:hover{
+	color: #1E9FFF;
+}
