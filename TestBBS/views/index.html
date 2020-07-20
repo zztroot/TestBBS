@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <title>测试论坛</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="../static/layui-v2.5.6/layui/css/layui.css">
 	<script src="../static/js/jQuery.js" type="text/javascript"></script>
 	<script src="../static/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="../static/layer-v3.1.1/layer/layer.js" type="text/javascript"></script>
+	<script src="../static/layui-v2.5.6/layui/layui.all.js" type="text/javascript"></script>
 </head>
+<style>
+	.s{
+		float: left;
+	}
+</style>
+<script>
+	window.onload = function (){
+		//平台、设备和操作系统
+		var system ={win : false,mac : false,xll : false};
+		//检测平台
+		var p = navigator.platform;
+		system.win = p.indexOf("Win") == 0;
+		system.mac = p.indexOf("Mac") == 0;
+		system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+		//跳转语句，如果是手机访问就自动跳转到wap.baidu.com页面
+		if(!system.win && !system.mac && !system.xll){
+			layer.msg("建议使用电脑访问")
+			$(".modifyImg").hide()
+			$(".modifyTitle").css({"white-space":"normal", "word-break":"break-all", "white-space":"nowrap","overflow":"hidden"});
+			// $(".ana").css("margin-top", "10px")
+		}
+	}
+</script>
 <body>
    <div id="main_content">
        <div class="divnavbar">
@@ -22,14 +47,14 @@
                            <span class="icon-bar"></span>
                            <span class="icon-bar"></span>
                        </button>
-                       <a class="navbar-brand" href="#">TESTBBS</a>
+                       <a class="navbar-brand" href="#" style="color: #fffffc">TestBBS</a>
                    </div>
                    <!-- Collect the nav links, forms, and other content for toggling -->
                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                        <ul class="nav navbar-nav">
                            <li class="active"><a href="#">首页<span class="sr-only">(current)</span></a></li>
                            <li><a href="#">分类</a></li>
-                           <li class="dropdown"><a href="#">关于我们</a></li>
+                           <li class="dropdown"><a href="#">关于</a></li>
                        </ul>
                        <form class="navbar-form navbar-left">
                            <div class="form-group">
@@ -55,58 +80,46 @@
 			   <div class="row">
 				   <div class="col-xs-12 col-sm-9 col-md-9">
 				   		<div class="left_content">
-							<div class="article" style="height:50px; none;border-bottom: 1px solid #f2f2f2;">
-								<div class="active_title img"><img src="" height="40px" width="100%"></div>
-								<a href="#" class="active_title title_all">
-									<span class="title">python的安装</span>
-									<span class="time hidden-xs">2018-02-03</span>
-								</a>
+							{{ range .articles }}
+							<div class="article" style="border-bottom: 1px solid #f2f2f2;width: 96%;margin: auto">
+								<div style="height:50px;">
+									<div class="active_title img"><img src="{{ .Img }}" height="40px" width="100%" style="border:solid 1px #F1F1F4;" class="modifyImg"></div>
+									<a href="/detailArticle?id={{ .Id }}" class="active_title title_all">
+										<div style="width:96%;" class="modifyTitle"><p class="title">{{ .Title }}</p></div>
+										<span class="time hidden-xs">{{ .CreateTime.Format "2006-01-02" }}</span>
+									</a>
+								</div>
 							</div>
-							<div class="article" style="height:50px; none;border-bottom: 1px solid #f2f2f2;">
-								<div class="active_title img"><img src="" height="40px" width="100%"></div>
-								<a href="#" class="active_title title_all">
-									<span class="title">python的安装</span>
-									<span class="time hidden-xs">2018-02-03</span>
-								</a>
-							</div>
-							<div class="article" style="height:50px; none;border-bottom: 1px solid #f2f2f2;">
-								<div class="active_title img"><img src="" height="40px" width="100%"></div>
-								<a href="#" class="active_title title_all">
-									<span class="title">python的安装464654564464646464646464</span>
-									<span class="time hidden-xs">2018-02-03</span>
-								</a>
-							</div>
+							{{ end }}
 						</div>	   
 				   </div>
 				   <div class="col-xs-12 col-sm-3 col-md-3">
 				   		<div class="right_content">
 							<div class="ana">
-								<div class="head" style="height:30px; none;border-bottom: 1px solid #f2f2f2;">
-									<div class="hot_article ana_title"><span class="glyphicon glyphicon-pencil"></span><span style="margin-left: 5px;font-weight:bold">每日名言</span></div>
+								<div class="head" style="height:30px;border-bottom: 1px solid #f2f2f2;">
+									<div class="hot_article ana_title"><span class="glyphicon glyphicon-pencil"></span><span style="margin-left: 5px;font-weight:bold">随机名言</span></div>
 								</div>
-								<div class="ana_content"><p>越是无能的人，越喜欢挑剔别人的错儿。</p><p align="right" style="font-size: 10px;">发布者：XXXXXXXXXXXX</p></div>
+								<div class="ana_content"><p>{{ .sentence }}</p><p align="right" style="font-size: 10px;">发布者：{{ .sentenceUser.Username }}</p></div>
 							</div>
 							<div class="new_article art">
 								<div class="new_article head" style="height:30px; none;border-bottom: 1px solid #f2f2f2;">
 									<div class="hot_article ana_title"><span class="glyphicon glyphicon-align-justify"></span><span style="margin-left: 5px;font-weight:bold">最新文章</span></div>
 								</div>
-								<div class="new_article ana_content">
-									<a href=""><p>《python的安装》</p></a>
-									<a href=""><p>《python的安装》</p></a>
-									<a href=""><p>《python的安装》</p></a>
-									<a href=""><p>《xts的环境搭建和前期设置》</p></a>
+								{{ range .articlesLists }}
+								<div class="new_article ana_content" style="white-space:normal;word-break:break-all;border-bottom: 1px solid #f2f2f2;width: 94%;margin: auto">
+									<a href="/detailArticle?id={{ .Id }}"><p><span class="layui-badge-dot layui-bg-cyan" style="width: 5px; height: 5px"></span> {{ .Title }}</p></a>
 								</div>
+								{{ end }}
 							</div>
 							<div class="hot_article art">
 								<div class="hot_article head" style="height:30px; none;border-bottom: 1px solid #f2f2f2;">
 									<div class="hot_article ana_title"><span class="glyphicon glyphicon-stats"></span><span style="margin-left: 5px;font-weight:bold">热门文章</span></div>
 								</div>
-								<div class="hot_article ana_content">
-									<a href=""><p>《python的安装》</p></a>
-									<a href=""><p>《python的安装》</p></a>
-									<a href=""><p>《python的安装》</p></a>
-									<a href=""><p>《xts的环境搭建和前期设置越是无能的人，你hi是越喜越是无能的人，你hi是越喜》</p></a>
+								{{ range .articleLists }}
+								<div class="hot_article ana_content" style="white-space:normal;word-break:break-all;border-bottom: 1px solid #f2f2f2;width: 94%;margin: auto">
+									<a href="/detailArticle?id={{ .Id }}"><p><span class="layui-badge-dot layui-bg-cyan" style="width: 5px; height: 5px"></span> {{ .Title }}</p></a>
 								</div>
+								{{ end }}
 							</div>
 						</div>
 				   </div>

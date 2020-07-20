@@ -1,0 +1,45 @@
+{{ define "sentenceManager"}}
+    <table class="layui-table">
+        <colgroup>
+            <col>
+            <col width="200">
+            <col width="200">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>内容</th>
+            <th>编辑</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{ range .sentenceList }}
+        <tr>
+            <td>{{ .Content }}</td>
+            <td><button style="border:0;outline:none;background-color: transparent;"><a href="/modifySentence?id={{ .Id }}" class="but">编辑</a></button></td>
+            <td><button style="border:0;outline:none;background-color: transparent;"><a href="/delSentence?id={{ .Id }}" class="del" onclick="return confirm('确定删除?');">删除</a></button></td></td>
+        </tr>
+        {{ end }}
+        </tbody>
+    </table>
+{{/*    <script>*/}}
+{{/*        $(document).ready(function() {*/}}
+{{/*            $(".but").click(function() {*/}}
+{{/*                var idNumber = $(".IdNumber").val();*/}}
+{{/*                $.post("/centre", {"id":idNumber, "key":"4", "val":"获取"}, function (data) {*/}}
+{{/*                    $(".input").val(data.Content);*/}}
+{{/*                });*/}}
+{{/*                $("#modify").show()*/}}
+{{/*            });*/}}
+{{/*            $(".xiugai").click(function() {*/}}
+{{/*                var idNumber = $(".IdNumber").val();*/}}
+{{/*                var inputs = $(".input").val();*/}}
+{{/*                $.post("/centre", {"id":idNumber, "input":inputs, "key":"4", "val":""}, function (data) {*/}}
+{{/*                    layer.msg(data)*/}}
+{{/*                });*/}}
+{{/*                $("#modify").hide()*/}}
+{{/*            });*/}}
+{{/*        });*/}}
+{{/*    </script>*/}}
+
+{{ end }}

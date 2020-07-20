@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="utf-8" name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 		<title>注册</title>
 	</head>
 	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
@@ -48,7 +48,7 @@
 				<form>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">用户名：</label>
-				    <input type="text" class="form-control username" id="exampleInputEmail1" placeholder="请输入手机号" name="username">
+				    <input type="text" class="form-control username" id="exampleInputEmail1" placeholder="请输入昵称" name="username">
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputPassword1">密码：</label>
@@ -63,7 +63,8 @@
 				      <label><input type="radio" class="man" value="男生" name="sex"/>男生</label>
 				      <label><input type="radio" class="woman" value="女生" name="sex"/>女生</label>
 				  </div>
-				  <button type="button" class="btn_1 btn btn-default" id="test2" onclick="f()">注册</button>
+					<button type="button" class="btn btn-primary" id="test2" onclick="f()" style="width: 100%">注册</button>
+{{/*				  <button type="button" class="btn_1 btn btn-default" id="test2" onclick="f()">注册</button>*/}}
 				</form>
 			</div>
 		</div>

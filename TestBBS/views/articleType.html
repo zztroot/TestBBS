@@ -1,0 +1,13 @@
+{{ define "articleType"}}
+    <script>
+        function addType() {
+            var type_title = $(".type_title").val();
+            $.post("/centre", {"key":"5", "type_title":type_title}, function (data) {
+                layer.msg(data)
+            })
+        }
+    </script>
+    <input type="text" style="width: 100%" class="type_title layui-input" placeholder="添加分类">
+    <hr>
+    <p align="right"><button style="color:#01AAED" onclick="addType()">添加分类</button></p>
+{{ end }}

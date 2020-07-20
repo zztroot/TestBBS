@@ -4,7 +4,6 @@ body{
 
 .left_content{
 	margin-top: 70px;
-	height: 500px;
 	background-color: #FFFFFF;
     font-family: Arial; 
     border: 2px solid #F1F1F4; 
@@ -113,10 +112,6 @@ body{
 	margin-top: 10px;
 }
 
-.collection{
-	margin-top: 150px;
-}
-
 .coll{
 	background-color: #FFFFFF;
 	width: 28px;
@@ -135,3 +130,53 @@ body{
 .coll a:hover{
 	color: #1E9FFF;
 }
+
+.collection{
+	margin-top: 8px;
+	background-color: #FFFFFF;
+	font-family: Arial;
+	border: 2px solid #F1F1F4;
+	border-radius: 5px;
+}
+
+
+.icon{
+	width: 50%;
+	margin: auto;
+	display: table;
+}
+.icon p{
+	display: table-cell;    /*ie7和ie6都不能识别 display: table-cell;*/
+	vertical-align: middle;
+}
+
+/*留言板*/
+#com{
+	font-family: Arial;
+	border: 2px solid #F1F1F4;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+	margin-top: 8px;
+}
+
+#comments{
+	width: 96%;
+	margin: auto;
+}
+
+#showComments{
+	width: 96%;
+	margin: auto;
+	margin-top: 10px;
+}
+.commentsIng{
+	width: 100%;
+	margin-top: 10px;
+}
+.buttons{
+	background-color: transparent;
+	border: 0px solid transparent;
+	outline: none;
+}
+
+

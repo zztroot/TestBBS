@@ -10,7 +10,6 @@ body{
 
 .left_content{
 	margin-top: 70px;
-	height: 500px;
 	background-color: #FFFFFF;
     font-family: Arial; 
     border: 2px solid #F1F1F4; 
@@ -23,8 +22,9 @@ body{
 
 .article{
 	width: 96%;
+	height: auto;
 	margin: auto;
-	white-space: nowrap; 
+	white-space: nowrap;
 }
 
 .active_title{
@@ -101,7 +101,7 @@ body{
 	border-radius: 5px;
 	overflow:hidden;
 	white-space: nowrap;
-	text-overflow: ellipsis;
+	/*text-overflow: ellipsis;*/
 }
 
 /* login css */

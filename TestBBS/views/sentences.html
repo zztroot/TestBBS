@@ -1,0 +1,20 @@
+{{ define "sentences"}}
+    <script>
+        function addSentence() {
+            var sentence = $(".sentence").val();
+            $.post("/centre", {"sentence":sentence, "key":"2"}, function (data) {
+                if (data === "名言警句添加成功，2秒后刷新页面"){
+                    layer.msg(data);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 2000)
+                }else{
+                    layer.msg(data);
+                }
+            })
+        }
+    </script>
+    <input type="text" style="width: 100%" class="sentence layui-input" placeholder="发布名言">
+    <hr>
+    <p align="right"><button style="color:#01AAED" onclick="addSentence()">发布名言</button></p>
+{{ end }}

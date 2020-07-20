@@ -1,0 +1,35 @@
+{{ define "articleManager"}}
+    <script src="../static/layer-v3.1.1/layer/layer.js" type="text/javascript"></script>
+    <table class="layui-table">
+        <colgroup>
+            <col width="500">
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>类型</th>
+            <th>发布时间</th>
+            <th>编辑</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{ range .articleAndTypes }}
+        <tr>
+            <td>{{ .Title}}</td>
+            <td>{{ .Type }}</td>
+            <td>{{ .Time.Format "2006-01-02 15-04-05"}}</td>
+            <td><a href="/modifyArticle?id={{ .Id }}">编辑</a></td>
+            <td><a href="/delArticle?id={{ .Id }}" onclick="return confirm('确定删除?');">删除</a></td>
+        </tr>
+        {{ end }}
+        </tbody>
+{{/*        <script>*/}}
+{{/*            function delArticle() {*/}}
+{{/*                return layer.confirm('您确定要删除此文章吗');*/}}
+{{/*            }*/}}
+{{/*        </script>*/}}
+    </table>
+{{ end }}

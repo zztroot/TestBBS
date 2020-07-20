@@ -1,0 +1,68 @@
+{{ define "personalData"}}
+    <style>
+        li input{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        li p{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .panel{
+            float: left;
+            margin-left: 1%;
+        }
+        .you{
+            width: 99%;
+            margin: auto;
+        }
+    </style>
+    <script>
+        function modify() {
+            var username = $(".username").val();
+            var sex = $(".sex").val();
+            var phone = $(".phone").val();
+
+            $.post("/centre", {"key":0, "username":username, "sex":sex, "phone":phone}, function (data) {
+                layer.msg(data);
+            })
+        }
+    </script>
+        用户名:
+        <li>
+            <input type="text" value="{{ .user.Username }}" class="username layui-input">
+        </li>
+        性别:
+        <li>
+            <input type="text" value="{{ .user.Sex}}" class="sex layui-input">
+        </li>
+        手机号:
+        <li>
+            <input type="text" value="{{ .user.Phone}}" class="phone layui-input">
+        </li>
+    <div class="you">
+        <div class="panel panel-primary" style="background-color: #00c4ff;width: 32%">
+            <div class="panel-body">
+                座右铭(随机)
+            </div>
+            <div class="panel-footer">{{ .sentence.Content }}</div>
+        </div>
+        <div class="panel panel-primary" style="background-color: #00c4ff;width: 32%">
+            <div class="panel-body">
+                最热文章
+            </div>
+            <div class="panel-footer">python的安装</div>
+        </div>
+        <div class="panel panel-primary" style="background-color: #00c4ff;width: 32%" >
+            <div class="panel-body">
+                注册时间
+            </div>
+            <div class="panel-footer">{{ .user.CreateTime.Format "2006-01-02 15-04-05" }}</div>
+        </div>
+    </div>
+    <hr>
+    {{ range .types }}
+    <input type="text" value="{{ .Name }}" hidden="hidden" id="v">
+    {{ end }}
+    <p align="right"><button style="color: #01AAED" type="button" onclick="modify()">修改资料</button></p>
+{{ end }}
